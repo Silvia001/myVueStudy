@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo_03:v-model的用法</title>
+</head>
+<body>
+<div id="example">
+    <form>
+        姓名：<input type="text" v-model="message.name" placeholder=""><br/>
+        性别：<input type="radio" id="man" value="man" v-model="message.sex">
+              <label for="man">男</label>
+              <input type="radio" id="male" value="male" v-model="message.sex">
+              <label for="male">女</label><br/>
+        兴趣：<input type="checkbox" id="book" value="book" v-model="message.interest">
+              <label for="book">阅读</label>
+              <input type="checkbox" id="swim" value="swim" v-model="message.interest">
+              <label for="swim">游泳</label>
+              <input type="checkbox" id="game" value="game" v-model="message.interest">
+              <label for="game">游戏</label>
+              <input type="checkbox" id="song" value="song" v-model="message.interest">
+              <label for="song">唱歌</label>
+              <input type="checkbox" id="skate" value="skate" v-model="message.interest">
+              <label for="skate">溜冰</label><br/>
+        身份：<select v-model="message.identity">
+                <option value="teacher">教师</option>
+                <option value="doctor">医生</option>
+                <option value="lawyer">律师</option>
+              </select>
+    </form>
+</div>
+
+</body>
+<script src="js/app/vue.js"></script>
+<script src="js/controller/All.js"></script>
+<script type="text/javascript">
+new Vue({
+    el:'#example',
+    data:{
+        message:{
+            name:"树叶",
+            sex:"man",
+            interest:['swim','game','skate'],
+            identity:'doctor'
+        }
+    }
+});
+</script>
+</html>

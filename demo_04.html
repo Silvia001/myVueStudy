@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo_04:v-for指令的用法</title>
+</head>
+<body>
+<div id="example">
+    <ul id="example-2">
+        <li  v-for="item in items">
+            {{ parentMessage }} - - {{ item.message }}
+        </li>
+    </ul>
+</div>
+
+</body>
+<script src="js/app/vue.js"></script>
+<script src="js/controller/All.js"></script>
+<script type="text/javascript">
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    parentMessage: 'Parent',
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+})
+</script>
+</html>
