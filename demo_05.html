@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo_05:v-text指令的用法</title>
+</head>
+<body>
+<div id="app">
+    <div id="test1" @click="click1">click1</div>
+    <div id="test2" @click.stop="click2">click2</div>
+    <my-component v-on:click.native="nativeclick" v-on:componenton="parentOn">
+    </my-component>
+</div>
+</body>
+<script src="js/app/vue.js"></script>
+<script src="js/controller/All.js"></script>
+<script type="text/javascript">
+var Child = {
+  template: '<div>A custom component!</div>'
+}
+Vue.component('my-component', {
+  name: 'my-component',
+  template: '<div>A custom component!<div @click.stop="toParent">test click</div></div>',
+  components: {
+    Child:Child
+  },
+  created(){
+    console.log(this);
+  },
+  methods: {
+    toParent(){
+      this.$emit('componenton','toParent')
+    }
+  },
+  mounted(){
+    console.log(this);
+  }
+})
+  new Vue({
+  el: '#app',
+  data: function () {
+    return {
+      heihei:{name:3333},
+      a:1
+    }
+  },
+  components: {
+    Child:Child
+  },
+  methods: {
+    click1(){
+      alert('click1')
+    },
+    click2(){
+      alert('click2')
+    },
+    nativeclick(){
+      alert('nativeclick')
+    },
+    parentOn(value){
+      alert(value)
+    }
+  }
+})
+</script>
+</body>
+</html>
